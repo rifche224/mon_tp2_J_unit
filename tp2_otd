@@ -1,0 +1,100 @@
+package compte_bancaire;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+public class Mon_compte_teste {
+    Mon_compte  mc = new Mon_compte();
+	@Test
+     public void teste_initialisation() {
+    	  Mon_compte mc = new Mon_compte();
+    	   mc.initialisation(0);
+    	     assertEquals(10,mc.getSolde(),1E8);
+	}
+    	     
+    	   /*ceci est est la separation des deux testes */
+    	   @Test
+    	     public void teste_credit() {
+    	    	  Mon_compte mc = new Mon_compte(20, 0);
+    	    	   Mon_compte.credit(10.25);
+    	    	   assertEquals(30.25,mc.getSolde(),1E8);  	  
+} 
+    	   
+    	   /*   ceci est la troisieme teste de ma fonnction debiter*/
+    	   
+    	   @Test
+    	     public void test_debiter() {
+    	    	  Mon_compte mc = new Mon_compte(25,5);
+    	    	   Mon_compte.debiter(25.5);
+    	    	     assertEquals(10,mc.getSolde(),1E8);
+    		}
+    	   
+    	 /* ceci est la partie concernant les testes en cas d'erreur */
+    	 //  @ IllegalArgumentException
+    	   public void error_test_credit() {
+    		   Mon_compte mc = new Mon_compte();
+    		   
+    		   
+    	   }
+    	   
+}     
+    
+ // ce qui suit est la classe compte bancaire
+
+package compte_bancaire;
+
+public class Mon_compte {
+  private int numero_compte;
+  private static double solde;
+	
+public Mon_compte() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+public Mon_compte(int numero_compte, double solde) {
+	super();
+	this.numero_compte = numero_compte;
+	this.solde = solde;
+}
+
+public int getNumero_compte() {
+	return numero_compte;
+}
+
+public void setNumero_compte(int numero_compte) {
+	this.numero_compte = numero_compte;
+}
+
+public double getSolde() {
+	return solde;
+}
+
+public void setSolde(double solde) {
+	this.solde = solde;
+}
+
+public double initialisation(double solde) {
+	
+	return 10;
+	    	 
+	     }
+	      
+	     public int consultation(int numero_compte) {
+	    	 return (int) solde;
+	     }
+	     
+	     public static void credit(double montant) {
+	    	  solde = solde+montant;
+	     }
+	     
+	     public static int debiter(double montant) {
+	    	 solde = solde-montant;
+			return (int) solde;
+	    	 
+	     }
+
+		
+}   
+     
+
+
